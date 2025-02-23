@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Tools - StockViz</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                StockViz
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html" class="nav-button"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./market.html" class="nav-button"><i class="fas fa-globe"></i> Markets</a></li>
+                <li><a href="./analysis.html" class="nav-button"><i class="fas fa-chart-bar"></i> Analysis</a></li>
+                <li><a href="./tools.html" class="nav-button active"><i class="fas fa-tools"></i> Tools</a></li>
+                <li><a href="#news" class="nav-button"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="#portfolio" class="nav-button"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            </ul>
+            <div class="user-section">
+                <button class="login-button"><i class="fas fa-user"></i> Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="tools-header">
+            <h1>Trading Tools</h1>
+            <p>Essential tools for smart trading decisions</p>
+        </section>
+
+        <div class="tools-grid">
+            <!-- Position Size Calculator -->
+            <div class="tool-card">
+                <div class="tool-header">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Position Size Calculator</h3>
+                </div>
+                <div class="calculator-form">
+                    <div class="input-group">
+                        <label for="accountSize">Account Size ($)</label>
+                        <input type="number" id="accountSize" placeholder="Enter account size">
+                    </div>
+                    <div class="input-group">
+                        <label for="riskPercentage">Risk Percentage (%)</label>
+                        <input type="number" id="riskPercentage" placeholder="Enter risk %" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="entryPrice">Entry Price ($)</label>
+                        <input type="number" id="entryPrice" placeholder="Enter entry price" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="stopLoss">Stop Loss ($)</label>
+                        <input type="number" id="stopLoss" placeholder="Enter stop loss" step="0.01">
+                    </div>
+                    <button onclick="calculatePosition()" class="calculate-button">Calculate</button>
+                    <div id="positionResult" class="result-box"></div>
+                </div>
+            </div>
+
+            <!-- Profit/Loss Calculator -->
+            <div class="tool-card">
+                <div class="tool-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Profit/Loss Calculator</h3>
+                </div>
+                <div class="calculator-form">
+                    <div class="input-group">
+                        <label for="shares">Number of Shares</label>
+                        <input type="number" id="shares" placeholder="Enter number of shares">
+                    </div>
+                    <div class="input-group">
+                        <label for="buyPrice">Buy Price ($)</label>
+                        <input type="number" id="buyPrice" placeholder="Enter buy price" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="sellPrice">Sell Price ($)</label>
+                        <input type="number" id="sellPrice" placeholder="Enter sell price" step="0.01">
+                    </div>
+                    <button onclick="calculateProfitLoss()" class="calculate-button">Calculate</button>
+                    <div id="plResult" class="result-box"></div>
+                </div>
+            </div>
+
+            <!-- Stock Screener -->
+            <div class="tool-card">
+                <div class="tool-header">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>Stock Screener</h3>
+                </div>
+                <div class="screener-form">
+                    <div class="input-group">
+                        <label>Market Cap Range</label>
+                        <select id="marketCapRange">
+                            <option value="all">All</option>
+                            <option value="mega">Mega ($200B+)</option>
+                            <option value="large">Large ($10B-$200B)</option>
+                            <option value="mid">Mid ($2B-$10B)</option>
+                            <option value="small">Small ($300M-$2B)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Sector</label>
+                        <select id="sector">
+                            <option value="all">All Sectors</option>
+                            <option value="tech">Technology</option>
+                            <option value="finance">Financial</option>
+                            <option value="health">Healthcare</option>
+                            <option value="consumer">Consumer</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>P/E Ratio</label>
+                        <select id="peRatio">
+                            <option value="all">Any</option>
+                            <option value="low">Low (<15)</option>
+                            <option value="mid">Medium (15-30)</option>
+                            <option value="high">High (>30)</option>
+                        </select>
+                    </div>
+                    <button onclick="screenStocks()" class="screen-button">Screen Stocks</button>
+                    <div id="screenResults" class="result-box"></div>
+                </div>
+            </div>
+
+            <!-- Compound Interest Calculator -->
+            <div class="tool-card">
+                <div class="tool-header">
+                    <i class="fas fa-coins"></i>
+                    <h3>Compound Interest Calculator</h3>
+                </div>
+                <div class="calculator-form">
+                    <div class="input-group">
+                        <label for="principal">Initial Investment ($)</label>
+                        <input type="number" id="principal" placeholder="Enter initial amount">
+                    </div>
+                    <div class="input-group">
+                        <label for="monthlyContribution">Monthly Contribution ($)</label>
+                        <input type="number" id="monthlyContribution" placeholder="Enter monthly contribution">
+                    </div>
+                    <div class="input-group">
+                        <label for="annualReturn">Expected Annual Return (%)</label>
+                        <input type="number" id="annualReturn" placeholder="Enter expected return" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="years">Time Period (Years)</label>
+                        <input type="number" id="years" placeholder="Enter number of years">
+                    </div>
+                    <button onclick="calculateCompoundInterest()" class="calculate-button">Calculate</button>
+                    <div id="compoundResult" class="result-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./tools.js"></script>
+</body>
+</html>
+ 
