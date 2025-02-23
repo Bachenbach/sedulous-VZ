@@ -526,3 +526,157 @@ body {
     box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
 }
 
+
+/* News Page Styles - New Additions */
+.news-header {
+    padding: 2rem 0;
+    background: var(--secondary-bg);
+    margin-bottom: 2rem;
+}
+
+.news-filters {
+    margin-top: 1rem;
+}
+
+.category-filters {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-btn.active {
+    background: #2196F3;
+    color: white;
+}
+
+.breaking-news {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.breaking-label {
+    background: #ff4444;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 3px;
+    margin-right: 1rem;
+}
+
+.ticker-wrapper {
+    overflow: hidden;
+    flex: 1;
+}
+
+.ticker {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ticker-item {
+    padding: 0.25rem 0;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.featured-news {
+    grid-column: 1 / -1;
+}
+
+.featured-content {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.featured-content img {
+    width: 300px;
+    object-fit: cover;
+}
+
+.featured-text {
+    padding: 1.5rem;
+}
+
+.news-item {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.news-category {
+    background: #e3f2fd;
+    color: #2196F3;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.insight-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.topic-tag {
+    display: inline-flex;
+    align-items: center;
+    background: #e3f2fd;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin: 0.5rem;
+}
+
+.topic-mentions {
+    background: #2196F3;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.load-more-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.load-more-btn:hover {
+    background: #1976D2;
+}
+
