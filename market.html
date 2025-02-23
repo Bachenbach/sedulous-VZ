@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Overview - StockViz</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                StockViz
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-button"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="market.html" class="nav-button active"><i class="fas fa-globe"></i> Markets</a></li>
+                <li><a href="#analysis" class="nav-button"><i class="fas fa-chart-bar"></i> Analysis</a></li>
+                <li><a href="#tools" class="nav-button"><i class="fas fa-tools"></i> Tools</a></li>
+                <li><a href="#news" class="nav-button"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="#portfolio" class="nav-button"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            </ul>
+            <div class="user-section">
+                <button class="login-button"><i class="fas fa-user"></i> Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="market-header-section">
+            <h1>Global Market Overview</h1>
+            <div class="market-status">
+                <span id="marketStatus"><i class="fas fa-circle"></i> Markets Open</span>
+                <span id="lastUpdate">Last updated: <time>12:30 PM EST</time></span>
+            </div>
+        </section>
+
+        <section class="major-indices">
+            <h2>Major Indices</h2>
+            <div class="indices-grid">
+                <div class="index-card">
+                    <h3>S&P 500</h3>
+                    <p class="price" id="sp500-price">4,185.25</p>
+                    <p class="change positive" id="sp500-change">+1.25%</p>
+                    <canvas class="mini-chart" id="sp500-chart"></canvas>
+                </div>
+                <div class="index-card">
+                    <h3>Dow Jones</h3>
+                    <p class="price" id="dow-price">32,845.65</p>
+                    <p class="change negative" id="dow-change">-0.35%</p>
+                    <canvas class="mini-chart" id="dow-chart"></canvas>
+                </div>
+                <div class="index-card">
+                    <h3>NASDAQ</h3>
+                    <p class="price" id="nasdaq-price">14,250.85</p>
+                    <p class="change positive" id="nasdaq-change">+0.95%</p>
+                    <canvas class="mini-chart" id="nasdaq-chart"></canvas>
+                </div>
+                <div class="index-card">
+                    <h3>Russell 2000</h3>
+                    <p class="price" id="russell-price">1,985.45</p>
+                    <p class="change positive" id="russell-change">+0.75%</p>
+                    <canvas class="mini-chart" id="russell-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="global-markets">
+            <h2>Global Markets</h2>
+            <div class="indices-grid">
+                <div class="index-card">
+                    <h3>FTSE 100</h3>
+                    <p class="price" id="ftse-price">7,385.25</p>
+                    <p class="change positive" id="ftse-change">+0.85%</p>
+                    <canvas class="mini-chart" id="ftse-chart"></canvas>
+                </div>
+                <div class="index-card">
+                    <h3>DAX</h3>
+                    <p class="price" id="dax-price">15,750.85</p>
+                    <p class="change positive" id="dax-change">+1.15%</p>
+                    <canvas class="mini-chart" id="dax-chart"></canvas>
+                </div>
+                <div class="index-card">
+                    <h3>Nikkei 225</h3>
+                    <p class="price" id="nikkei-price">28,750.85</p>
+                    <p class="change negative" id="nikkei-change">-0.45%</p>
+                    <canvas class="mini-chart" id="nikkei-chart"></canvas>
+                </div>
+                <div class="index-card">
+                    <h3>Shanghai</h3>
+                    <p class="price" id="shanghai-price">3,285.65</p>
+                    <p class="change positive" id="shanghai-change">+0.65%</p>
+                    <canvas class="mini-chart" id="shanghai-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="market-sectors">
+            <h2>Market Sectors</h2>
+            <div class="sector-grid">
+                <div class="sector-card">
+                    <h3>Technology</h3>
+                    <p class="change positive">+1.45%</p>
+                    <div class="sector-leaders">
+                        <span>AAPL +1.2%</span>
+                        <span>MSFT +2.1%</span>
+                        <span>GOOGL +0.8%</span>
+                    </div>
+                </div>
+                <div class="sector-card">
+                    <h3>Healthcare</h3>
+                    <p class="change negative">-0.35%</p>
+                    <div class="sector-leaders">
+                        <span>JNJ -0.5%</span>
+                        <span>PFE -0.2%</span>
+                        <span>UNH -0.4%</span>
+                    </div>
+                </div>
+                <div class="sector-card">
+                    <h3>Finance</h3>
+                    <p class="change positive">+0.75%</p>
+                    <div class="sector-leaders">
+                        <span>JPM +1.0%</span>
+                        <span>BAC +0.6%</span>
+                        <span>GS +0.8%</span>
+                    </div>
+                </div>
+                <div class="sector-card">
+                    <h3>Energy</h3>
+                    <p class="change positive">+2.15%</p>
+                    <div class="sector-leaders">
+                        <span>XOM +2.3%</span>
+                        <span>CVX +1.9%</span>
+                        <span>COP +2.2%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="market-news">
+            <h2>Latest Market News</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <span class="news-time">10:30 AM</span>
+                    <h3>Fed Signals Potential Rate Changes</h3>
+                    <p>Federal Reserve indicates possible policy shifts in response to economic data...</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-time">09:45 AM</span>
+                    <h3>Tech Stocks Lead Market Rally</h3>
+                    <p>Technology sector continues to drive market gains as earnings beat expectations...</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-time">09:15 AM</span>
+                    <h3>Global Markets Update</h3>
+                    <p>Asian markets close higher while European indices show mixed performance...</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="market.js"></script>
+</body>
+</html>

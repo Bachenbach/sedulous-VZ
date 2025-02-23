@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                Mike VZ
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-button active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="market.html" class="nav-button"><i class="fas fa-globe"></i> Markets</a></li>
+                <li><a href="analysis.html" class="nav-button"><i class="fas fa-chart-bar"></i> Analysis</a></li>
+                <li><a href="#tools" class="nav-button"><i class="fas fa-tools"></i> Tools</a></li>
+                <li><a href="#news" class="nav-button"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="#portfolio" class="nav-button"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            </ul>
+            <div class="user-section">
+                <button class="login-button"><i class="fas fa-user"></i> Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Real-Time Stock Market Analysis</h1>
+                <p>Track, analyze, and optimize your investments with professional-grade tools</p>
+                <div class="search-section">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., AAPL)">
+                        <button class="primary-button" onclick="fetchStockData()">Search</button>
+                    </div>
+                    <div class="popular-searches">
+                        Popular: 
+                        <a href="#" onclick="setStock('AAPL')">AAPL</a>
+                        <a href="#" onclick="setStock('GOOGL')">GOOGL</a>
+                        <a href="#" onclick="setStock('MSFT')">MSFT</a>
+                        <a href="#" onclick="setStock('AMZN')">AMZN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market-overview">
+            <div class="market-indices">
+                <div class="index-card">
+                    <h3>S&P 500</h3>
+                    <p class="price" id="sp500-price">4,185.25</p>
+                    <p class="change positive" id="sp500-change">+1.25%</p>
+                </div>
+                <div class="index-card">
+                    <h3>NASDAQ</h3>
+                    <p class="price" id="nasdaq-price">14,250.85</p>
+                    <p class="change positive" id="nasdaq-change">+0.95%</p>
+                </div>
+                <div class="index-card">
+                    <h3>DOW JONES</h3>
+                    <p class="price" id="dow-price">32,845.65</p>
+                    <p class="change negative" id="dow-change">-0.35%</p>
+                </div>
+                <div class="index-card">
+                    <h3>RUSSELL 2000</h3>
+                    <p class="price" id="russell-price">1,985.45</p>
+                    <p class="change positive" id="russell-change">+0.75%</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stock-dashboard" class="dashboard-section">
+            <div class="dashboard-header">
+                <h2>Stock Analysis Dashboard</h2>
+                <div class="timeframe-selector">
+                    <button class="time-button active" onclick="updateTimeframe('1D')">1D</button>
+                    <button class="time-button" onclick="updateTimeframe('1W')">1W</button>
+                    <button class="time-button" onclick="updateTimeframe('1M')">1M</button>
+                    <button class="time-button" onclick="updateTimeframe('3M')">3M</button>
+                    <button class="time-button" onclick="updateTimeframe('1Y')">1Y</button>
+                    <button class="time-button" onclick="updateTimeframe('5Y')">5Y</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="main-chart-section">
+                    <div class="stock-header">
+                        <div class="stock-info">
+                            <h3 id="stockName">Stock Overview</h3>
+                            <div class="stock-price">
+                                <span id="currentPrice">$0.00</span>
+                                <span id="priceChange" class="neutral">0.00 (0.00%)</span>
+                            </div>
+                        </div>
+                        <div class="chart-controls">
+                            <button class="chart-type-button active" onclick="updateChartType('line')">
+                                <i class="fas fa-chart-line"></i>
+                            </button>
+                            <button class="chart-type-button" onclick="updateChartType('candlestick')">
+                                <i class="fas fa-chart-bar"></i>
+                            </button>
+                            <button class="chart-type-button" onclick="toggleFullscreen()">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="market-data-grid">
+                    <div class="data-card">
+                        <h4>Market Cap</h4>
+                        <p id="marketCap">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Volume</h4>
+                        <p id="volume">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>P/E Ratio</h4>
+                        <p id="peRatio">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>52W High</h4>
+                        <p id="high52w">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>52W Low</h4>
+                        <p id="low52w">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h4>Dividend Yield</h4>
+                        <p id="dividend">-</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
